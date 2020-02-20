@@ -4,7 +4,7 @@ import StateContext from "../Context/StateContext";
 import mapboxgl from "mapbox-gl";
 import "mapbox-gl/dist/mapbox-gl.css";
 const styles = {
-    width: "90vw",
+    width: "70vw",
     height: "80vh",
 
 

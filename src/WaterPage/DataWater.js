@@ -2,11 +2,11 @@ import React,{useState,useEffect,useContext} from "react";
 import useAxios from 'axios-hooks';
 import lodash from 'lodash';
 import axios from 'axios';
-import { Button } from 'react-bulma-components';
+import { Button, Card,Dropdown} from 'react-bulma-components';
 import { Layout } from "../MapPage";
 import WaterContext from "../Context/WaterContext";
 import StateContext from "../Context/StateContext";
-
+import WaterCard from "./WaterCard";
 const DataWater = ()=>{
     const states =useContext(StateContext);
     const [current,setCurrent]=useState(states);
@@ -16,7 +16,7 @@ const DataWater = ()=>{
     const [cities,setCities]= useState([]);
     const [largest,setLargerst]=useState([]);
     const cords = String(cordinates[0].center.longitude)+','+String(cordinates[0].center.latitude);
-    console.log(states);
+ //   console.log(states);
 
 
 
@@ -162,7 +162,7 @@ const DataWater = ()=>{
 
             });
 
-         console.dir(sorts);
+        // console.dir(sorts);
             setCities(sj.coordinates);
 
             setLocations({locations:result.data});
@@ -213,7 +213,7 @@ handlestatus();*/
         //  const name = st.map( name => name.city);
          // console.log(typeof (st));
        //   console.log(st);
-        console.dir(cities);
+      //  console.dir(cities);
         },[states]);
 
      /*   console.log(Object.keys(cities));
@@ -263,7 +263,7 @@ console.log(cities["0"]);
 
 const sort = (arrays) =>{
 
-    console.dir(arrays);
+  //  console.dir(arrays);
    let  sim = arrays.sort(function (a, b) {
 
         if (a.population > b.population) {
@@ -289,16 +289,13 @@ const sort = (arrays) =>{
     let fail  = ( testo(test) === undefined) ? "empty" : test;
 //  console.dir(locations);
 
-    console.log(typeof (fail.population));
-    console.log(Number(fail.population));
+    //onsole.log(typeof (fail.population));
+    //console.log(Number(fail.population));
     let sorted = sort(locations.locations);
     let failed  = ( testo(sorted) === undefined) ? "empty" : sorted;
  //   console.log(sorted);
 //console.log(Object.values(cities.splice(0,5)));
-    Object.values(cities.splice(0,5)).map((item) => (console.log(item.city)));
 
-    const renderitems = [];
-    Object.values(cities.splice(0,5)).map((item) => (renderitems.push(<li key={item.city}>{item.city}</li>)));
     let sendor = locations.locations.filter(location => location.state === states[0].toString());
     let sorts = sendor.sort(function (a,b){
 
@@ -311,22 +308,33 @@ const sort = (arrays) =>{
 
     });
 
-    console.dir(sorts);
-    console.dir(sendor);
+
+    //console.dir(sorts);
+  //  console.dir(sendor);
 
 
   //  cities.coordinates.map((item) => (console.log(item.city)));
     return(
 <div>
+   <h1>Select City</h1>
 
-    <h1>Latitude</h1>
+   <Dropdown>
+       {statelocations.locations.map(item => <Dropdown.Item value={item.city} key={item.city}>{item.city}</Dropdown.Item>)}
+   </Dropdown>
+    <div>
+        {statelocations.locations.splice(1,1).map(({latitude,longitude}) => (<WaterCard lat={latitude} long={longitude}></WaterCard>))}
+
+
+    </div>
+
 
 
 
 <ul>
 
+
     <ul>
-        {renderitems}
+
     </ul>
 
 </ul>
