@@ -8,6 +8,7 @@ import WaterContext from "../Context/WaterContext";
 import StateContext from "../Context/StateContext";
 import DataContext from "../Context/DataContext";
 import CardGraph from "./CardGraph";
+
 import {StatsContext} from "../Context/StatsContextProvider";
 
 const WaterCard = ({lat,long})=>{
@@ -71,10 +72,10 @@ const WaterCard = ({lat,long})=>{
 
 
                             <Heading size={2}>{current.currently.temperature} &#176;C</Heading>
-                            <p>Feels like : {current.currently.apparentTemperature} &#176;C</p>
+                            <p>Feels like:   {current.currently.apparentTemperature} &#176;C</p>
 
                             <label>Humidity: 	{current.currently.humidity}</label>
-
+<br/>
                             <label>Dew Pt:      {current.currently.dewPoint}</label>
                         </Media.Item>
                     </Media>
