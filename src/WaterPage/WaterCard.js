@@ -31,7 +31,7 @@ const WaterCard = ({lat,long})=>{
             setDaily({daily:result.data["daily"]});
             setHourly({hourly:result.data["hourly"]})
     //    setDatas({daily:result.data["daily"],hourly:result.data["hourly"]});
-            setState(state => ({ ...state, daily:result.data["daily"]}));
+            setState(state => ({ ...state, daily:result.data["daily"],hourly:result.data["hourly"]}));
 
         };
         fetchData();
@@ -74,9 +74,13 @@ const WaterCard = ({lat,long})=>{
                             <Heading size={2}>{current.currently.temperature} &#176;C</Heading>
                             <p>Feels like:   {current.currently.apparentTemperature} &#176;C</p>
 
-                            <label>Humidity: 	{current.currently.humidity}</label>
+                            <label>Humidity: 	{current.currently.humidity*100} %</label>
 <br/>
                             <label>Dew Pt:      {current.currently.dewPoint}</label>
+<br/>
+                            <label>
+Pressure:   {current.currently.pressure}
+                            </label>
                         </Media.Item>
                     </Media>
 

@@ -10,6 +10,7 @@ import WaterCard from "./WaterCard";
 const DataWater = ()=>{
     const states =useContext(StateContext);
     const [current,setCurrent]=useState(states);
+     const [city,setCity] = useState({city:[]});
     const [locations,setLocations]= useState({locations:[]});
     const  [statelocations,setStateLocations]= useState({locations:[]});
     const cordinates= useContext(WaterContext);
@@ -25,6 +26,8 @@ const DataWater = ()=>{
     const [{ data: getData, loading: getLoading, error: getError }] = useAxios(
         url
     );
+
+
 
     useEffect(() => {
 
@@ -309,21 +312,40 @@ const sort = (arrays) =>{
     });
 
 
+
+let onChange = (selected) => {
+    console.log(selected);
+
+    //setCity(selected.toString());
+    let star =  statelocations.locations.find(item => item.city === selected.toString());
+    console.log(star);
+
+
+   // setCity({ selected });
+};
     //console.dir(sorts);
   //  console.dir(sendor);
+    let star =  statelocations.locations.find(item => item.city === city.toString());
+//    statelocations.locations.find(item => item.city === city.toString()).map(item => console.log(item.city,item.longitude));
 
+    console.log(star);
 
   //  cities.coordinates.map((item) => (console.log(item.city)));
     return(
 <div>
-   <h1>Select City</h1>
 
-   <Dropdown>
-       {statelocations.locations.map(item => <Dropdown.Item value={item.city} key={item.city}>{item.city}</Dropdown.Item>)}
+    <h1>Select City</h1>
+   <Dropdown onChange={onChange} >
+
+       {statelocations.locations.map(item => <Dropdown.Item value={item.city} className="is-active" key={item.city} >{item.city}</Dropdown.Item>)}
    </Dropdown>
     <div>
-        {statelocations.locations.splice(1,1).map(({latitude,longitude}) => (<WaterCard lat={latitude} long={longitude}></WaterCard>))}
 
+
+
+
+    </div>
+    <div>
 
     </div>
 

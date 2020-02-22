@@ -3,7 +3,7 @@ import React, { useState, createContext } from 'react';
 const StatsContext = React.createContext([{}, () => {}]);
 
 const StatsContextProvider = (props) => {
-    const [state, setState] = useState({daily:[],hourly:[]
+    const [state, setState] = useState({daily:[],hourly:[],city:"Los Angeles"
     });
     return (
         <StatsContext.Provider value={[state, setState]}>

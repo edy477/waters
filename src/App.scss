@@ -78,10 +78,65 @@ margin-left:0;
 
 .cardgraphs .cardgraphsi .table.is-fullwidth.is-striped {
 
-  color: red;
+
 }
 
 .cardgraphsi{
   grid-column: 2/4;
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  grid-template-rows: 1fr 2fr 2fr;
 
+
+}
+/*#30475e*/
+
+.cardgraphs .cardgraphsi .table.is-bordered.is-fullwidth.is-striped thead {
+background-color: #30475e;
+}
+
+.cardgraphs .cardgraphsi .table.is-bordered.is-fullwidth.is-striped thead th {
+  color: #fffdf9;
+  text-align: center;
+}
+.cardgraphs .cardgraphsi .table.is-bordered.is-fullwidth{
+  text-align: center;
+}
+
+.cardgraphs .cardgraphsi table.table.is-bordered.is-fullwidth.is-striped tbody tr th {
+  text-align: center;
+}
+.dropdown{
+  margin-left: 7em;
+}
+ .sidebar div h1{
+   text-align: center;
+ }
+.cardgraphs .cardgraphsi .table.is-bordered.is-fullwidth.is-striped  {
+ grid-column: 2/3;
+  grid-row: 1/5;
+  height: 30vw;
+  width: 20vw;
+  margin-top: 4em;
+
+}
+
+.cardgraphsi .graph {
+  grid-column: 2/3;
+  grid-row: 3/5;
+}
+
+
+
+.cardgraphs .cardgraphsi canvas {
+  grid-column: 2/3;
+  grid-row: 6/7;
+
+}
+
+.cardgraphs .cardgraphsi p {
+  grid-column: 2/3;
+  grid-row: 1/1;
+  text-align: center;
+  margin-top: 2em;
 }
