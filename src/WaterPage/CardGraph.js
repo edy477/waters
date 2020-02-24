@@ -63,18 +63,17 @@ let sunsettime = [];
 
     let daynames= times.map(item => moment.unix(item).format('dddd'));
     let datenames = times.map(item => moment.unix(item).format('MM/DD'));
-//console.log(windspeed);
-   // console.log(dailys);
+
     useEffect(() => {
 
-        //console.log(temperatureMax);
+
          partly = iconnames["0"];
-       // console.log(partly);
+
         const myChartRef=charts.current.getContext("2d");
         new Chart(myChartRef, {
             type: "line",
             data: {
-                //Bring in data
+
                 labels: hours,
                 datasets: [
                     {
@@ -89,7 +88,7 @@ let sunsettime = [];
             options: {
                 maintainAspectRatio: false,
                 responsive:false
-                //Customize chart options
+
             }
         });
 
@@ -101,74 +100,22 @@ let sunsettime = [];
 
 
 
-   //     const temphigh = state.daily.data.map(items => items.temperatureHigh);
-      //  console.log(temphigh);
-
-
-
-       // setDaily(state.daily);
-
-       // const tempsdaily= stats.map()
-
-      //  console.dir(state.daily.data["0"]);
-      // state.daily.data.map(item => console.log(item.temperatureHigh));
-
-    //    console.dir(stats["0"].daily);
-       // console.dir(state.daily.data);
-      /*  let ts = [];
-        ts=  state.daily.data;
-    //  console.log(ts);
-        function testo(t) {      //defining a function
-            if (t === undefined) {       //if t=undefined, call tt
-                console.log(t)      //call t
-            }
-            return t;
-        }
-        let fail  = ( testo(state.daily.data) === undefined) ? "empty" : state.daily.data;
-   //console.log(fail["1"].time);
-   //console.log(Object.keys(fail));
-        //console.log(Object.values(fail));
-        const temperaturehigh=[];
-        Object.values(fail).map(item => temperaturehigh.push(item.temperatureHigh));
-        console.log(temperaturehigh);
-
-     //   const dats = data.map(item => item.temperatureHigh);
-
-        const svg = d3.select(canvas.current).style("border", "1px solid black");
-
-
-        /*.enter()
-        .append("h2")
-        .text((datapoint) => `${datapoint} degrees`)
-        .style((datapoint) => {
-            if (datapoint > 10) {
-                return "red"
-            } else { return "blue" }
-        });*/
-        //   fail.map(item => console.log(item.time));
-       // console.log(dats);
-
-
-        //state.daily.map(item => console.log(item.daily));
     },[state]);
 
-    //console.log(daily);
-//console.dir(typeof (iconnames[0]));
+
 let iconmap = iconnames.map(item => {
 
 let ts = item;
-//console.dir(item);
+
 
 const tse="partly-cloudy-day";
 if(ts === tse)
 {
-    //console.log("good");
+
 }
 let str = '"' + ts + '"';
-//console.log(str);
 
 
-  //return <div><WeatherIcon name="darksky" iconId={str.toString()} flip="horizontal" rotate="90" /></div>// <div><WeatherIcon name="darksky" iconId= flip="horizontal" rotate="90" /></div>
 
 
 
@@ -181,8 +128,7 @@ let rendericons = () => {
 
 
 
-    const ts ="partly-cloudy-day";
-    //console.dir(ts);
+    const ts ="partly-cloudy-day";//console.dir(ts);
        return <div><WeatherIcon name="darksky" iconId={ts} flip="horizontal" rotate="90" /></div>
 
 
@@ -192,11 +138,11 @@ let rendericons = () => {
 
 };
 
-  // console.dir(state.daily);
+
     return(
 
         <div className="cardgraphsi">
-            <p><h3> 7 DAYS FORECAST</h3></p>
+            <p> 7 DAYS FORECAST</p>
 
 <Table className="table is-bordered">
 
@@ -235,7 +181,7 @@ Humidity
         <td>
             Sunrise Time
         </td>
-        {sunrisetime.map(item => <td>{item}</td>)}
+        {sunrisetime.map(item => <th>{item}</th>)}
 
     </tr>
     <tr>
@@ -243,7 +189,7 @@ Humidity
         <td>
             Sunsetime Time
         </td>
-        {sunsettime.map(item => <td>{item}</td>)}
+        {sunsettime.map(item => <th>{item}</th>)}
 
     </tr>
     </tbody>

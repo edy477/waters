@@ -1,24 +1,25 @@
+
 #root{
-  height: 100vw;
+  height: 100vh;
 
 }
 body{
 
-  height: 100vw;
+  height: 100vh;
 }
 .App{
   width: 100vw;
   background-color:#f7f7f7;
   margin-left: 0;
   padding-left: 0;
-  height: 100vw;
+  height: 100vh;
 
 }
 .container{
 margin-left:0;
   display: grid;
   width: 100vw;
-  height: 100vw;
+  height: 100vh;
 
   padding-left: 0;
 
@@ -37,7 +38,7 @@ margin-left:0;
   width: 20vw;
   background-color: #1f3044;
   color: white;
-  height: 100vw;
+  height: 100%;
 
 
 }
@@ -140,3 +141,15 @@ background-color: #30475e;
   text-align: center;
   margin-top: 2em;
 }
+
+@media only screen and (min-width: 401px) and (max-width: 960px) {
+  body{
+    height: 100vh;
+  }
+  .dropdown {
+    position: relative;
+    margin-left: 0.2em;
+  }
+
+}
+

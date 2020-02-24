@@ -24,7 +24,7 @@ const MapboxGLMap = () => {
                 container: mapContainer.current,
                 style: "mapbox://styles/mapbox/streets-v11", // stylesheet location
                 center: [-96, 41],
-                zoom: 4
+                zoom: 3.5
             });
 let  hoveredStateId = null;
 
@@ -60,27 +60,8 @@ let  hoveredStateId = null;
                     }
                 });
 
-            /*   map.addLayer({
-                    'id': 'points',
-                    'type': 'symbol',
-                    'source': 'cities',
-                    'layout': {
-// get the icon name from the source's "icon" property
-// concatenate the name to get an icon from the style's sprite sheet
-                        'icon-image': ['concat', ['get', 'icon'], '-15'],
-// get the title name from the source's "title" property
-                        'text-field': ['get', 'name'],
-                        'text-size':10,
-                        'text-font': ['Open Sans Semibold', 'Arial Unicode MS Bold'],
 
 
-
-                    },
-                   'filter':['>','pop','100'],
-
-
-                });
-*/
                 map.addLayer({
                     'id': 'state-borders',
                     'type': 'line',
@@ -92,18 +73,7 @@ let  hoveredStateId = null;
                     }
                 });
 
-   /*             map.addLayer({
-                    'id': 'point',
-                    'source': 'cities',
-                    'type': 'circle',
-                    'paint': {
-                        'circle-radius': 2,
-                        'circle-color': '#262626'
 
-                    }
-
-                });
-*/
                 map.on('mousemove', 'state-fills', function(e) {
                     if (e.features.length > 0) {
                         if (hoveredStateId) {
@@ -129,7 +99,7 @@ let  hoveredStateId = null;
                     hoveredStateId = null;
                 });
 
-                map.on('click',function(e)
+                map.on('click','state-fills',function(e)
                 {
                     const fet = map.queryRenderedFeatures(e.point);
 

@@ -17,9 +17,11 @@ const WaterCard = ({lat,long})=>{
     const [daily,setDaily] =useState({daily:[]});
     const [hourly,setHourly] =useState({hourly:[]});
     const [datas, setDatas] = useContext(DataContext);
-   //const[datas, setDatas] = useState({daily:{},hourly:{}});
+
     const [current,setCurrent] =useState({currently:[]});
+
     useEffect(() => {
+
         const str = lat.toString()+','+long.toString();
 
         const fetchData = async () => {
@@ -36,25 +38,6 @@ const WaterCard = ({lat,long})=>{
         };
         fetchData();
     }, [lat]);
-    /*useEffect(()=> {
-
-//setDatas({daily:daily,hourly:hourly});
-      setDatas({daily:result.data["daily"],hourly:result.data["hourly"]});
-    });
-    */
-  /*  useMemo(() => {
-      //  setDatas({daily:result.data["daily"],hourly:result.data["hourly"]});
-        setDatas({daily:daily,hourly:hourly});
-    },[daily,hourly]);
-*/
-  /*  useEffect(() => {
-    //    setDatas({daily:daily,hourly:hourly});
-        // Run! Like go get some data from an API.
-    }, []);
-*/
-   // console.log(data.forecast);
-//console.log(current.currently.summary);
-
 
     return(
 

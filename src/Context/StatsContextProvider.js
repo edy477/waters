@@ -3,7 +3,7 @@ import React, { useState, createContext } from 'react';
 const StatsContext = React.createContext([{}, () => {}]);
 
 const StatsContextProvider = (props) => {
-    const [state, setState] = useState({daily:[],hourly:[],city:"Los Angeles"
+    const [state, setState] = useState({daily:[],hourly:[]
     });
     return (
         <StatsContext.Provider value={[state, setState]}>
@@ -14,22 +14,3 @@ const StatsContextProvider = (props) => {
 
 export { StatsContext, StatsContextProvider };
 
-/*
-export const StatsContext = createContext();
-
-const StatsContextProvider = (props) => {
-    const initial ={
-        daily:[],
-        hourly:[]
-    };
-    const [stats, setStats] = useState(initial);
-
-    return (
-        <StatsContext.Provider value={{stats, setStats}}>
-            {props.children}
-        </StatsContext.Provider>
-    )
-}
-
-export default StatsContextProvider;
-*/
