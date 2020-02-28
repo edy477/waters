@@ -13,6 +13,7 @@ import DataWater from './DataWater';
 import CardGraph from "./CardGraph";
 const WaterPage = ()=> {
 
+
     const stat ={
 
         daily:[],
