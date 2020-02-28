@@ -5,11 +5,14 @@ module.exports = async function(env, argv) {
   // Customize the config before returning it.
   return config;
 };
-*/const createExpoWebpackConfig = require('@expo/webpack-config');
+*/const createExpoWebpackConfig = require("@expo/webpack-config");
 
-module.exports = function(env, argv) {
-  env.mode = 'development';
+module.exports = (env, argv) => {
   const config = createExpoWebpackConfig(env, argv);
-// Customize the config before returning it.
-  return config;
+  return config.then(c => {
+    c.plugins = c.plugins.filter(
+        x => x.constructor.name !== "WebpackDeepScopeAnalysisPlugin"
+    );
+    return c;
+  });
 };
